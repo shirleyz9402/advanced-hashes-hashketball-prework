@@ -126,21 +126,60 @@ def game_hash
 end
 
 def num_points_scored(name)
-  pts = 9999   
   game_hash.each do |team,details|
     details[:players].each do |stats|
       if stats[:name] == name
-        pts = stats[:points]
+        return stats[:points]
       end 
     end 
   end
-  pts
+end 
+
+def shoe_size(name)
+  game_hash.each do |team,details|
+    details[:players].each do |stats|
+      if stats[:name] == name
+        return stats[:shoe]
+      end 
+    end 
+  end
+end
+
+def team_colors(team_name)
+  game_hash.each do |team,details|
+    if details[:team_name] == team_name
+       return details[:colors].flatten
+    end 
+  end 
+end 
+
+def team_names
+  game_hash.map do |team,details|
+    details[:team_name]
+  end
+end 
+
+def player_numbers(team_name)
+ num = []
+  game_hash.each do |team,details|
+    if details[:team_name] == team_name
+      details[:players].each do |stats|
+        num << stats[:number]
+      end 
+    end 
+  end 
+  num
+end 
+
+def player_stats(name)
+  stat = {}
+  game_hash.each do |team,details|
+    details[:players].each do |stats|
+      if stats[:name] == name
+        stats = stat
+      end 
+    end 
+  end 
+  stat
 end 
   
-
-
-
-
-
-
-
