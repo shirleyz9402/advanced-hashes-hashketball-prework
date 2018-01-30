@@ -190,6 +190,7 @@ shoes = 0
       if stats[:shoe] > shoes
         shoes = stats[:shoe]
         rebound = stats[:rebounds]
+      end 
     end 
   end
   rebound
