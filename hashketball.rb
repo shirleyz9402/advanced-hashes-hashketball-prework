@@ -182,7 +182,7 @@ def player_stats(name)
   end 
 end 
 
-def big_shoe_rebound
+def big_shoe_rebounds
   game_hash.each do |team,details|
     details[:players].each do |stats|
       stats.find {|shoe| stats[:shoe].max}
